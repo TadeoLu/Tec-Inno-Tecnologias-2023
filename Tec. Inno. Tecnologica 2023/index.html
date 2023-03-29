@@ -29,22 +29,35 @@
           <label for="exampleInputEmail1" class="form-label text-light">Ingrese su gmail</label>
           <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
         </div>
-        <div class="text-danger" id="feedbackMail">
+        <div style="display: none;" class="text-danger" id="feedbackMail">
+          Debe tener @gmail.com
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label text-light">Contraseña</label>
           <input type="password" class="form-control" id="contra">
         </div>
-        <div class="text-danger" id="feedbackContra">
+        <div style="display: none;" class="text-danger" id="feedbackContra">
           Debe tener al menos 8 caracteres
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label text-light">DNI</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="text" class="form-control" id="DNI">
+        </div>
+        <div style="display: none;" class="text-danger" id="feedbackDni">
+          Debe tener 8 numeros
         </div>
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label text-light">celular</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
+          <input type="text" class="form-control" id="celular">
+        </div>
+        <div style="display: none;" class="text-danger" id="feedbackCelu1">
+          Debe tener este formato +54 9 11 xxxx xxxx
+        </div>
+        <div style="display: none;" class="text-danger" id="feedbackCelu2">
+          Debe tener +54 9 11
+        </div>
+        <div style="display: none;" class="text-danger" id="feedbackCelu3">
+          debe tener 8 numeros en este formato xxxx xxxx
         </div>
         <button class="btn btn-primary" onclick="validarForm()">Enviar</button>
       </row>
@@ -66,14 +79,44 @@
         var email = document.getElementById('email');
         if(email.value.includes('@') && email.value.includes('gmail.com')){
           email.className = "form-control is-valid";
-          document.getElementById('feedbackMail').visibility = 'hidden';
+          document.getElementById('feedbackMail').style.display= "none";
         }else{
           email.className = "form-control is-invalid";
-          document.getElementById('feedbackMail').visibility = 'hidden';
+          document.getElementById('feedbackMail').style.display= "block";
         }
         var contraseña = document.getElementById("contra");
-        if(contraseña.value.lenght() < 8){
-          
+        if(contraseña.value.length >=  8){
+          contraseña.className ="form-control is-valid";
+          document.getElementById('feedbackContra').style.display= "none";
+        }else{
+          contraseña.className ="form-control is-invalid";
+          document.getElementById('feedbackContra').style.display= "block";
+        }
+        var dni = document.getElementById('DNI');
+        if(dni.value.length == 8){
+          dni.className ="form-control is-valid";
+          document.getElementById('feedbackDni').style.display= "none";
+        }else{
+          dni.className ="form-control is-invalid";
+          document.getElementById('feedbackDni').style.display= "block";
+        }
+        var celu = document.getElementById('celular');
+        console.log(celu.value.length);
+        if(celu.value.includes('+54 9 11') && celu.value.length == 18){
+          celu.className ="form-control is-valid";
+          document.getElementById('feedbackCelu').style.display= "none";
+        }else if(!celu.value.includes('+54 9 11') && celu.value.length != 18 ) {
+          celu.className ="form-control is-invalid";
+          document.getElementById('feedbackCelu1').style.display= "block";
+        }  
+        else if(!celu.value.includes('+54 9 11')){
+          console.log(celu.value.includes('+54 9 11'));
+          celu.className ="form-control is-invalid";
+          document.getElementById('feedbackCelu2').style.display= "block";
+        }
+        else if(celu.value.length != 18){
+          celu.className ="form-control is-invalid";
+          document.getElementById('feedbackCelu3').style.display= "block";
         }
       }
     </script>
