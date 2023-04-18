@@ -78,7 +78,7 @@
     <div class="container text-center">
       <div class="row align-items-center">
         <div class="col align-items-center">
-          <button style="float: left  ;outline: 0ch;" type="button">
+          <button style="float: left  ;outline: 0ch;" type="button" onclick="CarouselIzquierda()">
             <img style="rotate: 180deg" src="flecha.png" alt="" height="20px" width="20px">
           </button>
         </div>
@@ -86,7 +86,7 @@
         <img id="imgCarousel" src="Carousel1.jpeg" alt="" width="900">
       </div>
       <div class="col text-center">
-        <button style="float: left  ;outline: 0ch;" type="button">
+        <button style="float: left;" type="button" onclick="CarouselDerecha()">
           <img src="flecha.png" alt="" height="20px" width="20px">
         </button>
       </div>
@@ -145,18 +145,33 @@
         }
       }
 
+      function cambiarImagen (){
+          if($("#imgCarousel").attr("src") == "Carousel1.jpeg"){
+            $("#imgCarousel").attr("src","Carousel2.jpg");
+          }else{
+            $("#imgCarousel").attr("src","Carousel1.jpeg");
+          }
+        }
+
       function CarouselIzquierda(){
         $("#imgCarousel").animate({
-          left:'250px',
-          opacity:'0'
+          opacity:'0',
         })
-        var src=$('#imgCarousel').attr(src);
-        
-        $("#imgCarousel").attr(src, )
+
+        setTimeout(cambiarImagen, 450)
+        $("#imgCarousel").animate({
+          opacity:'1',
+        })
       }
 
       function CarouselDerecha(){
-
+        $("#imgCarousel").animate({
+          opacity:'0',
+        })
+        setTimeout(cambiarImagen, 450)
+        $("#imgCarousel").animate({
+          opacity:'1',
+        })
       }
     </script>
 </body>
