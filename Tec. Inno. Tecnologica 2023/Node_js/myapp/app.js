@@ -6,11 +6,17 @@ const path = require('path');
 
 const port = 3000
 
-app.get('/', function(req, res) {
-    res.sendFile(path.join(__dirname, '/index.html'));
-  });
+// app.get('/', function(req, res) {
+//     res.sendFile(path.join(__dirname, '/index.html'));
+//   });
 
-  app.listen(port);
+app.use(express.static('files'));
+
+app.get('/insert', function (req, res) {
+
+});
+
+app.listen(port);
 console.log('Server started at http://localhost:' + port);
 
 // fs.readFile('./index.html',function(error, html){
@@ -24,19 +30,22 @@ console.log('Server started at http://localhost:' + port);
 
 
 
-var mysql      = require('mysql');
+var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'alumno',
-  password : 'alumnoipm',
-  database : 'mydb'
+  host: 'localhost',
+  user: 'alumno',
+  password: 'alumnoipm',
+  database: 'mydb'
 });
- 
+
+
 connection.connect();
- 
-connection.query('SELECT 2 + 2 AS solution', function (error, results, fields) {
+
+connection.query('insert into Cliente(dni, gmail, contraseña, celular) values ({$dni}, {$gmail}, {$contraseña}, {$celular})', (error, results, fields) => {
   if (error) throw error;
-  console.log('The solution is: ', results[0].solution);
+  app.get('/insert', function (req, res) {
+    res.sendFile(path.join(__dirname, '/insert.html'));
+  });
 });
- 
+
 connection.end();
