@@ -29,31 +29,31 @@
       </div>
     </div>
   </nav>
-  <form style="padding-left: 5%; padding-right:5%">
+  <form action="/insert" method="post" style="padding-left: 5%; padding-right:5%">
     <div class="mb-3">
       <label for="exampleInputEmail1" class="form-label text-light">Ingrese su gmail</label>
-      <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+      <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
     </div>
     <div style="display: none;" class="text-danger" id="feedbackMail">
       Debe tener @gmail.com
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label text-light">Contraseña</label>
-      <input type="password" class="form-control" id="contra">
+      <input type="password" class="form-control" id="contra" name="contra">
     </div>
     <div style="display: none;" class="text-danger" id="feedbackContra">
       Debe tener al menos 8 caracteres
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label text-light">DNI</label>
-      <input type="text" class="form-control" id="DNI">
+      <input type="text" class="form-control" id="DNI" name="DNI">
     </div>
     <div style="display: none;" class="text-danger" id="feedbackDni">
       Debe tener 8 numeros
     </div>
     <div class="mb-3">
       <label for="exampleInputPassword1" class="form-label text-light">celular</label>
-      <input type="text" class="form-control" id="celular">
+      <input type="text" class="form-control" id="celular" name="celular">
     </div>
     <div style="display: none;" class="text-danger" id="feedbackCelu1">
       Debe tener este formato +54 9 11 xxxx xxxx

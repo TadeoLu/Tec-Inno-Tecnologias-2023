@@ -28,17 +28,15 @@ function validarForm() {
     bien = false;
   }
   var celu = document.getElementById('celular');
-  console.log(celu.value.length);
   if (celu.value.includes('+54 9 11') && celu.value.length == 18) {
     celu.className = "form-control is-valid";
-    document.getElementById('feedbackCelu').style.display = "none";
+    document.getElementById('feedbackCelu1').style.display = "none";
   } else if (!celu.value.includes('+54 9 11') && celu.value.length != 18) {
     celu.className = "form-control is-invalid";
     document.getElementById('feedbackCelu1').style.display = "block";
     bien = false;
   }
   else if (!celu.value.includes('+54 9 11')) {
-    console.log(celu.value.includes('+54 9 11'));
     celu.className = "form-control is-invalid";
     document.getElementById('feedbackCelu2').style.display = "block";
     bien = false;
@@ -49,6 +47,19 @@ function validarForm() {
     bien = false;
   }
   if(bien){
-    window.open("./insert");
+    var datos = {
+      dni: dni.innerHTML,
+      gmail: email.innerHTML,
+      contraseña: contraseña.innerHTML,
+      telefono: celu.innerHTML
+    }
+
+    fetch("/insert", {
+      method: "POST",
+      body: JSON.stringify(datos),
+      headers: {"Content-type": "application/json; charset=UTF-8"}
+    })
+    .then(response => response.json()) 
+    .then(json => console.log(json));
   }
 }
