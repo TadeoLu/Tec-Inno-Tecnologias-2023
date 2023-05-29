@@ -1,65 +1,62 @@
 function validarForm() {
   var bien = true;
-  var email = document.getElementById('email');
-  if (email.value.includes('@') && email.value.includes('gmail.com')) {
+  const email = document.getElementById("email");
+  if (email.value.includes("@") && email.value.includes("gmail.com")) {
     email.className = "form-control is-valid";
-    document.getElementById('feedbackMail').style.display = "none";
+    document.getElementById("feedbackMail").style.display = "none";
   } else {
     email.className = "form-control is-invalid";
-    document.getElementById('feedbackMail').style.display = "block";
+    document.getElementById("feedbackMail").style.display = "block";
     bien = false;
   }
-  var contraseña = document.getElementById("contra");
+  const contraseña = document.getElementById("contra");
   if (contraseña.value.length >= 8) {
     contraseña.className = "form-control is-valid";
-    document.getElementById('feedbackContra').style.display = "none";
+    document.getElementById("feedbackContra").style.display = "none";
   } else {
     contraseña.className = "form-control is-invalid";
-    document.getElementById('feedbackContra').style.display = "block";
+    document.getElementById("feedbackContra").style.display = "block";
     bien = false;
   }
-  var dni = document.getElementById('DNI');
+  const dni = document.getElementById("DNI");
   if (dni.value.length == 8) {
     dni.className = "form-control is-valid";
-    document.getElementById('feedbackDni').style.display = "none";
+    document.getElementById("feedbackDni").style.display = "none";
   } else {
     dni.className = "form-control is-invalid";
-    document.getElementById('feedbackDni').style.display = "block";
+    document.getElementById("feedbackDni").style.display = "block";
     bien = false;
   }
-  var celu = document.getElementById('celular');
-  if (celu.value.includes('+54 9 11') && celu.value.length == 18) {
+  const celu = document.getElementById("celular");
+  if (celu.value.includes("+54 9 11") && celu.value.length == 18) {
     celu.className = "form-control is-valid";
-    document.getElementById('feedbackCelu1').style.display = "none";
-  } else if (!celu.value.includes('+54 9 11') && celu.value.length != 18) {
+    document.getElementById("feedbackCelu1").style.display = "none";
+  } else if (!celu.value.includes("+54 9 11") && celu.value.length != 18) {
     celu.className = "form-control is-invalid";
-    document.getElementById('feedbackCelu1').style.display = "block";
+    document.getElementById("feedbackCelu1").style.display = "block";
+    bien = false;
+  } else if (!celu.value.includes("+54 9 11")) {
+    celu.className = "form-control is-invalid";
+    document.getElementById("feedbackCelu2").style.display = "block";
+    bien = false;
+  } else if (celu.value.length != 18) {
+    celu.className = "form-control is-invalid";
+    document.getElementById("feedbackCelu3").style.display = "block";
     bien = false;
   }
-  else if (!celu.value.includes('+54 9 11')) {
-    celu.className = "form-control is-invalid";
-    document.getElementById('feedbackCelu2').style.display = "block";
-    bien = false;
-  }
-  else if (celu.value.length != 18) {
-    celu.className = "form-control is-invalid";
-    document.getElementById('feedbackCelu3').style.display = "block";
-    bien = false;
-  }
-  if(bien){
-    var datos = {
-      dni: dni.innerHTML,
-      gmail: email.innerHTML,
-      contraseña: contraseña.innerHTML,
-      telefono: celu.innerHTML
-    }
-
+  if (bien) {
+    const datos = {
+      dni: dni.value,
+      gmail: email.value,
+      contraseña: contraseña.value,
+      telefono: celu.value,
+    };
     fetch("/insert", {
       method: "POST",
       body: JSON.stringify(datos),
-      headers: {"Content-type": "application/json; charset=UTF-8"}
-    })
-    .then(response => response.json()) 
-    .then(json => console.log(json));
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((response) => response.json());
   }
 }

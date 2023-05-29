@@ -1,124 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pagina de bootstrap</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-</head>
-<body style="background-color:black ;">
+    <script src="index.js"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body style="background-color: black">
     <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Ez Esport</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-              <a class="nav-link" href="#">Features</a>
-              <a class="nav-link" href="#">Pricing</a>
-              <a class="nav-link disabled">Disabled</a>
-            </div>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ez Esport</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link" href="#">Features</a>
+            <a class="nav-link" href="#">Pricing</a>
+            <a class="nav-link disabled">Disabled</a>
           </div>
         </div>
-      </nav>
-      <div style="padding-left: 5%; padding-right:5%">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label text-light">Ingrese su gmail</label>
-          <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        </div>
-        <div style="display: none;" class="text-danger" id="feedbackMail">
-          Debe tener @gmail.com
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label text-light">Contraseña</label>
-          <input type="password" class="form-control" id="contra">
-        </div>
-        <div style="display: none;" class="text-danger" id="feedbackContra">
-          Debe tener al menos 8 caracteres
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label text-light">DNI</label>
-          <input type="text" class="form-control" id="DNI">
-        </div>
-        <div style="display: none;" class="text-danger" id="feedbackDni">
-          Debe tener 8 numeros
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label text-light">celular</label>
-          <input type="text" class="form-control" id="celular">
-        </div>
-        <div style="display: none;" class="text-danger" id="feedbackCelu1">
-          Debe tener este formato +54 9 11 xxxx xxxx
-        </div>
-        <div style="display: none;" class="text-danger" id="feedbackCelu2">
-          Debe tener +54 9 11
-        </div>
-        <div style="display: none;" class="text-danger" id="feedbackCelu3">
-          debe tener 8 numeros en este formato xxxx xxxx
-        </div>
-        <button class="btn btn-primary" onclick="validarForm()">Enviar</button>
-      </row>
-      <div class="container text-center">
+      </div>
+    </nav>
+    <form
+      action="/insert"
+      method="post"
+      style="padding-left: 5%; padding-right: 5%"
+    >
+      <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label text-light"
+          >Ingrese su gmail</label
+        >
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          aria-describedby="emailHelp"
+        />
+      </div>
+      <div style="display: none" class="text-danger" id="feedbackMail">
+        Debe tener @gmail.com
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label text-light"
+          >Contraseña</label
+        >
+        <input type="password" class="form-control" id="contra" name="contra" />
+      </div>
+      <div style="display: none" class="text-danger" id="feedbackContra">
+        Debe tener al menos 8 caracteres
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label text-light"
+          >DNI</label
+        >
+        <input type="text" class="form-control" id="DNI" name="DNI" />
+      </div>
+      <div style="display: none" class="text-danger" id="feedbackDni">
+        Debe tener 8 numeros
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label text-light"
+          >celular</label
+        >
+        <input type="text" class="form-control" id="celular" name="celular" />
+      </div>
+      <div style="display: none" class="text-danger" id="feedbackCelu1">
+        Debe tener este formato +54 9 11 xxxx xxxx
+      </div>
+      <div style="display: none" class="text-danger" id="feedbackCelu2">
+        Debe tener +54 9 11
+      </div>
+      <div style="display: none" class="text-danger" id="feedbackCelu3">
+        debe tener 8 numeros en este formato xxxx xxxx
+      </div>
+      <button class="btn btn-primary" onclick="validarForm()">Enviar</button>
+    </form>
+    <div class="container text-center">
       <div class="row align-items-center">
         <div class="col">
-            <img src="MicrosoftTeams-image.png" alt="" >
-            <h1 class="text-light">PolloCrack007</h1>
+          <img src="MicrosoftTeams-image.png" alt="" />
+          <h1 class="text-light">PolloCrack007</h1>
         </div>
         <div class="col">
-            <img src="yo.jpeg" alt="" width="500px">
-            <h1 class="text-light">TadeoLu</h1>
+          <img src="yo.jpeg" alt="" width="500px" />
+          <h1 class="text-light">TadeoLu</h1>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-    <script>
-      function validarForm(){
-        var email = document.getElementById('email');
-        if(email.value.includes('@') && email.value.includes('gmail.com')){
-          email.className = "form-control is-valid";
-          document.getElementById('feedbackMail').style.display= "none";
-        }else{
-          email.className = "form-control is-invalid";
-          document.getElementById('feedbackMail').style.display= "block";
-        }
-        var contraseña = document.getElementById("contra");
-        if(contraseña.value.length >=  8){
-          contraseña.className ="form-control is-valid";
-          document.getElementById('feedbackContra').style.display= "none";
-        }else{
-          contraseña.className ="form-control is-invalid";
-          document.getElementById('feedbackContra').style.display= "block";
-        }
-        var dni = document.getElementById('DNI');
-        if(dni.value.length == 8){
-          dni.className ="form-control is-valid";
-          document.getElementById('feedbackDni').style.display= "none";
-        }else{
-          dni.className ="form-control is-invalid";
-          document.getElementById('feedbackDni').style.display= "block";
-        }
-        var celu = document.getElementById('celular');
-        console.log(celu.value.length);
-        if(celu.value.includes('+54 9 11') && celu.value.length == 18){
-          celu.className ="form-control is-valid";
-          document.getElementById('feedbackCelu').style.display= "none";
-        }else if(!celu.value.includes('+54 9 11') && celu.value.length != 18 ) {
-          celu.className ="form-control is-invalid";
-          document.getElementById('feedbackCelu1').style.display= "block";
-        }  
-        else if(!celu.value.includes('+54 9 11')){
-          console.log(celu.value.includes('+54 9 11'));
-          celu.className ="form-control is-invalid";
-          document.getElementById('feedbackCelu2').style.display= "block";
-        }
-        else if(celu.value.length != 18){
-          celu.className ="form-control is-invalid";
-          document.getElementById('feedbackCelu3').style.display= "block";
-        }
-      }
-    </script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
