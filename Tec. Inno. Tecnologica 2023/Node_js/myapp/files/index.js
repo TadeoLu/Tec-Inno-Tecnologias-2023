@@ -57,6 +57,7 @@ function validarForm() {
       headers: {
         "Content-Type": "application/json",
       },
+      redirect: "follow",
     }).then((response) => response.json());
   }
 }

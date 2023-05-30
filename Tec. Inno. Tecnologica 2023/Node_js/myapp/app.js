@@ -24,29 +24,32 @@ var connection = mysql.createConnection({
 connection.connect();
 
 app.post("/insert", (req, res) => {
-  let gmail = req.body.email;
-  let dni = req.body.DNI;
-  let contra = req.body.contra;
-  let telefono = req.body.celular;
+  let email = req.body.gmail;
+  let DNI = req.body.dni;
+  let contra = req.body.contraseña;
+  let celu = req.body.telefono;
   console.log(req.body);
   connection.query(
-    "insert into Cliente(dni, gmail, contrasenia, celular) values (" +
-      dni +
-      ", " +
-      gmail +
-      " , " +
+    'insert into Cliente(dni, gmail, contraseña, celular) values (' +
+      DNI +
+      ', "' +
+      email +
+      '" , "' +
       contra +
-      " , " +
-      telefono +
-      ")",
+      '" , "' +
+      celu +
+      '")',
     (error, results, fields) => {
-      if (error) throw error;
-      res.send("Inserts successful");
+      if (error) {
+        res.send(error)
+        throw error;
+      }
+      app.get("/insert", (req, res, error) => {
+        res.send("Inserts successful");
+      });
     }
   );
 });
-
-connection.end();
 
 app.listen(port);
 console.log("Server started at http://localhost:" + port);
