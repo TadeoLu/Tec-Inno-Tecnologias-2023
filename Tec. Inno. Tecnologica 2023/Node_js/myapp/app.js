@@ -41,12 +41,12 @@ app.post("/insert", (req, res) => {
       '")',
     (error, results, fields) => {
       if (error) {
-        res.send(error)
-        throw error;
+        res.send(error);
       }
       app.get("/insert", (req, res, error) => {
         res.send("Inserts successful");
       });
+      res.redirect(301,"/insert");
     }
   );
 });

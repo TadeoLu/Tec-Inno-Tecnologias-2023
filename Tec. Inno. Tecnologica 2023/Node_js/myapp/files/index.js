@@ -59,5 +59,6 @@ function validarForm() {
       },
       redirect: "follow",
     }).then((response) => response.json());
+    window.location.replace("/insert");
   }
 }
