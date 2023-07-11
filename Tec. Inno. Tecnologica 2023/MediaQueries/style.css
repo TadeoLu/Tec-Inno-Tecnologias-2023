@@ -1,0 +1,33 @@
+input{
+    margin-bottom: 20px; 
+    height: 30px; 
+    font-size: medium;
+}
+
+h1{
+    font-size: xx-large;
+}
+
+.arriba{
+    display: flex;
+}
+
+.compu{
+    width: 39%;
+}
+
+.boton{
+    width: 19%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: blue; 
+    font-size: large; 
+    color: white; 
+    border: 0px;
+}
+
+@media only screen and (max-width: 812px){
+    .boton{width: 99%;}
+    .compu{width: 98%;}
+    .arriba{justify-content: center;}
+}

@@ -41,15 +41,18 @@ app.post("/insert", (req, res) => {
       '")',
     (error, results, fields) => {
       if (error) {
-        res.send(error);
+        app.get("/insert", (req, res, error) => {
+          res.send(error);
+        });
+        throw error;
       }
       app.get("/insert", (req, res, error) => {
         res.send("Inserts successful");
       });
-      res.redirect(301,"/insert");
     }
   );
 });
+
 
 app.listen(port);
 console.log("Server started at http://localhost:" + port);
